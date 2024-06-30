@@ -17,9 +17,9 @@ const AddToCard = () => {
   };
   return (
     <div className="flex flex-col gap-7">
-      {items.map((value, index) => {
+      {items.map((value) => {
         return (
-          <div key={index}>
+          <div key={value.id}>
             <div className="w-[80%]  mx-auto   grid grid-cols-1 md:grid-cols-2 border-2 border-gray-700 border-solid place-items-center">
               <div className="image w-3/4 h-3/4 ">
                 <img
@@ -65,8 +65,11 @@ const AddToCard = () => {
         );
       })}
       <div className="fixed bottom-8 left-10 flex flex-col gap-4">
-        {item.map((value, index) => (
-          <div key={index} className="flex justify-between items-center gap-4">
+        {item.map((value) => (
+          <div
+            key={value.id}
+            className="flex justify-between items-center gap-4"
+          >
             <div className="bg-red-500 h-9 w-2"></div>
             <h1 className="text-lg text-red-500">
               {value} Item remove from Store
@@ -76,6 +79,13 @@ const AddToCard = () => {
             </button>
           </div>
         ))}
+      </div>
+      <div>
+        {items.length == 0 && (
+          <h1 className="text-lg text-gray-800 text-bold text-center">
+            No item is present in add to card
+          </h1>
+        )}
       </div>
     </div>
   );
